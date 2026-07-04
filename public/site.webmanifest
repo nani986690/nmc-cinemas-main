@@ -1,0 +1,17 @@
+{
+  "name": "NMC Home Cinemas",
+  "short_name": "NMC",
+  "description": "Premium home theater design, projector, screen, recliner, audio and AV solutions in Andhra Pradesh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0d0c",
+  "theme_color": "#0f0f0f",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

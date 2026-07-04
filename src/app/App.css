@@ -1,0 +1,573 @@
+/* ============================================================
+   FONTS — Inter (sans) + Instrument Serif + Bebas Neue + Exo 2
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Instrument+Serif&family=Bebas+Neue&family=Exo+2:wght@700;800;900&display=swap");
+
+/* ============================================================
+   CSS VARIABLES (Design Tokens) — DARK MODE (default)
+   ============================================================ */
+body {
+  /* Colors */
+  --background: #0f0d0c;
+  --foreground: #ece7e4;
+  --accent: #b45309;
+  --stone-deep: #1c1917;
+
+  /* Scrollbar */
+  --scrollbar-track: #0f0d0c;
+  --scrollbar-thumb: #292524;
+  --scrollbar-thumb-hover: #b45309;
+
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+  --font-brand: "Bebas Neue", sans-serif;
+
+  /* Stone palette */
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+  --color-stone-50: #fafaf9;
+
+  /* Category accent colours */
+  --color-blue-500: #3b82f6;
+  --color-violet-400: #a78bfa;
+  --color-emerald-400: #34d399;
+  --color-cyan-400: #22d3ee;
+
+  /* Core named colors */
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-red-600: #dc2626;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-300: #cccccc;
+  --color-accent-dark: #1a1409;
+
+  /* Border radius */
+  --radius: 0rem;
+
+  /* Transitions */
+  --transition-colors: color 300ms, background-color 300ms, border-color 300ms;
+
+  /* ── Alpha / overlay tokens ──────────────────────────────── */
+
+  /* Foreground alphas (light text on dark bg) */
+  --color-foreground-alpha-45: rgba(236, 231, 228, 0.45);
+  --color-stone-50-alpha-30: rgba(250, 250, 249, 0.30);
+  --color-stone-50-alpha-60: rgba(250, 250, 249, 0.60);
+  --color-stone-50-alpha-65: rgba(250, 250, 249, 0.65);
+  --color-stone-50-alpha-70: rgba(250, 250, 249, 0.70);
+
+  /* White alphas */
+  --color-white-alpha-02: rgba(255, 255, 255, 0.02);
+  --color-white-alpha-03: rgba(255, 255, 255, 0.03);
+  --color-white-alpha-04: rgba(255, 255, 255, 0.04);
+  --color-white-alpha-05: rgba(255, 255, 255, 0.05);
+  --color-white-alpha-06: rgba(255, 255, 255, 0.06);
+  --color-white-alpha-08: rgba(255, 255, 255, 0.08);
+  --color-white-alpha-12: rgba(255, 255, 255, 0.12);
+  --color-white-alpha-15: rgba(255, 255, 255, 0.15);
+  --color-white-alpha-20: rgba(255, 255, 255, 0.20);
+  --color-white-alpha-100: rgba(255, 255, 255, 0.10);
+
+  /* Black alphas */
+  --color-black-alpha-15: rgba(0, 0, 0, 0.15);
+  --color-black-alpha-20: rgba(0, 0, 0, 0.20);
+  --color-black-alpha-40: rgba(0, 0, 0, 0.40);
+  --color-black-alpha-50: rgba(0, 0, 0, 0.50);
+  --color-black-alpha-55: rgba(0, 0, 0, 0.55);
+  --color-black-alpha-60: rgba(0, 0, 0, 0.60);
+  --color-black-alpha-65: rgba(0, 0, 0, 0.65);
+  --color-black-alpha-70: rgba(0, 0, 0, 0.70);
+
+  /* Stone alphas */
+  --color-stone-500-alpha-35: rgba(120, 113, 108, 0.35);
+  --color-stone-700-alpha-12: rgba(68, 64, 60, 0.12);
+  --color-stone-700-alpha-20: rgba(68, 64, 60, 0.20);
+  --color-stone-700-alpha-30: rgba(68, 64, 60, 0.30);
+  --color-stone-700-alpha-40: rgba(68, 64, 60, 0.40);
+  --color-stone-800-alpha-15: rgba(41, 37, 36, 0.15);
+  --color-stone-800-alpha-50: rgba(41, 37, 36, 0.50);
+  --color-stone-900-alpha-30: rgba(28, 25, 23, 0.30);
+  --color-stone-900-alpha-35: rgba(28, 25, 23, 0.35);
+  --color-stone-900-alpha-45: rgba(28, 25, 23, 0.45);
+  --color-stone-900-alpha-60: rgba(28, 25, 23, 0.60);
+
+  /* Amber alphas */
+  --color-amber-700-alpha-04: rgba(180, 83, 9, 0.04);
+  --color-amber-700-alpha-05: rgba(180, 83, 9, 0.05);
+  --color-amber-700-alpha-40: rgba(180, 83, 9, 0.40);
+  --color-amber-800-alpha-04: rgba(146, 64, 14, 0.04);
+  --color-amber-800-alpha-05: rgba(146, 64, 14, 0.05);
+  --color-amber-800-alpha-06: rgba(146, 64, 14, 0.06);
+  --color-amber-800-alpha-07: rgba(146, 64, 14, 0.07);
+  --color-amber-800-alpha-12: rgba(146, 64, 14, 0.12);
+  --color-amber-800-alpha-30: rgba(146, 64, 14, 0.30);
+  --color-amber-800-alpha-50: rgba(146, 64, 14, 0.50);
+  --color-amber-900-alpha-12: rgba(120, 53, 15, 0.12);
+  --color-amber-600-alpha-60: rgba(217, 119, 6, 0.60);
+
+  /* Overlay / dark-glass tokens */
+  --color-bg-dark-alpha-90: rgba(15, 13, 12, 0.90);
+  --color-dark-brown-alpha-30: rgba(5, 2, 0, 0.30);
+  --color-dark-brown-alpha-40: rgba(5, 2, 0, 0.40);
+  --color-dark-brown-alpha-65: rgba(5, 2, 0, 0.65);
+  --color-dark-brown-alpha-80: rgba(5, 2, 0, 0.80);
+  --color-darker-brown-alpha-30: rgba(5, 3, 0, 0.30);
+  --color-darker-brown-alpha-65: rgba(5, 3, 0, 0.65);
+  --color-darker-blue-alpha-30: rgba(0, 3, 8, 0.30);
+  --color-darker-blue-alpha-65: rgba(0, 3, 8, 0.65);
+  --color-card-overlay-alpha-35: rgba(15, 10, 5, 0.35);
+
+  /* Misc */
+  --color-soft-blue-alpha-04: rgba(91, 141, 217, 0.04);
+
+  /* Gradient pairs */
+  --color-gradient-dark-brown: #0d0c08;
+  --color-gradient-light-brown: #1e1a10;
+  --color-gradient-dark-blue: #080a10;
+  --color-gradient-light-blue: #101520;
+  --color-gradient-dark-purple: #0a080e;
+  --color-gradient-light-purple: #14101e;
+  --color-gradient-dark-green: #080e0a;
+  --color-gradient-light-green: #101a10;
+  --color-gradient-dark-gray: #0d0d0d;
+  --color-gradient-light-gray: #1a1a1a;
+
+  /* Nav / UI surface tokens */
+  --nav-bg: rgba(15, 13, 12, 0.92);
+  --nav-border: #292524;
+  --card-bg: #1c1917;
+  --card-border: #292524;
+  --input-bg: #1c1917;
+  --input-border: #44403c;
+  --type-border: #292524;
+
+  /* Badge tokens */
+  --badge-blue-bg: rgba(59, 130, 246, 0.10);
+  --badge-blue-border: rgba(59, 130, 246, 0.25);
+  --badge-violet-bg: rgba(167, 139, 250, 0.10);
+  --badge-violet-border: rgba(167, 139, 250, 0.25);
+  --badge-emerald-bg: rgba(52, 211, 153, 0.10);
+  --badge-emerald-border: rgba(52, 211, 153, 0.25);
+  --badge-cyan-bg: rgba(34, 211, 238, 0.10);
+  --badge-cyan-border: rgba(34, 211, 238, 0.25);
+  --badge-amber-bg: rgba(146, 64, 14, 0.10);
+  --badge-amber-border: rgba(146, 64, 14, 0.25);
+
+  /* Misc UI */
+  --stat-border: #292524;
+  --toast-default-bg: #1c1917;
+  --toast-default-border: #292524;
+  --toast-default-left: #44403c;
+  --hero-bg-from: #1a1510;
+  --hero-bg-to: #0f0d0c;
+  --section-label-color: #b45309;
+  --link-color: #b45309;
+  --toggle-bg: #292524;
+  --toggle-knob: #78716c;
+  --toggle-active-bg: #b45309;
+  --toggle-active-knob: #ffffff;
+  --footer-color: #44403c;
+  --swatch-border: #292524;
+  --palette-border: #292524;
+}
+
+/* ============================================================
+   LIGHT MODE — complete override
+   ============================================================ */
+body.light {
+  --background: #f7f5f2;
+  --foreground: #1c1917;
+  --accent: #b45309;
+  --stone-deep: #ffffff;
+
+  /* Scrollbar */
+  --scrollbar-track: #f7f5f2;
+  --scrollbar-thumb: #d6d3d1;
+  --scrollbar-thumb-hover: #b45309;
+
+  /* Stone palette — inverted for light bg */
+  --color-stone-300: #44403c;
+  --color-stone-400: #57534e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #a8a29e;
+  --color-stone-700: #d6d3d1;
+  --color-stone-800: #e8e5e1;
+  --color-stone-900: #f3f0ec;
+  --color-stone-50: #1c1917;
+
+  /* Category accents — deeper for legibility on white */
+  --color-blue-500: #2563eb;
+  --color-violet-400: #7c3aed;
+  --color-emerald-400: #059669;
+  --color-cyan-400: #0891b2;
+
+  /* Named colors unchanged */
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-red-600: #dc2626;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-300: #9ca3af;
+  --color-accent-dark: #fef3c7;
+
+  /* ── Alpha / overlay tokens — light mode ─────────────────── */
+
+  /* Foreground alphas (dark text on light bg) */
+  --color-foreground-alpha-45: rgba(28, 25, 23, 0.45);
+  --color-stone-50-alpha-30: rgba(28, 25, 23, 0.10);
+  --color-stone-50-alpha-60: rgba(28, 25, 23, 0.55);
+  --color-stone-50-alpha-65: rgba(28, 25, 23, 0.60);
+  --color-stone-50-alpha-70: rgba(28, 25, 23, 0.65);
+
+  /* White alphas → become soft stone tints in light mode */
+  --color-white-alpha-02: rgba(28, 25, 23, 0.02);
+  --color-white-alpha-03: rgba(28, 25, 23, 0.03);
+  --color-white-alpha-04: rgba(28, 25, 23, 0.03);
+  --color-white-alpha-05: rgba(28, 25, 23, 0.04);
+  --color-white-alpha-06: rgba(28, 25, 23, 0.05);
+  --color-white-alpha-08: rgba(28, 25, 23, 0.06);
+  --color-white-alpha-12: rgba(28, 25, 23, 0.08);
+  --color-white-alpha-15: rgba(28, 25, 23, 0.10);
+  --color-white-alpha-20: rgba(28, 25, 23, 0.12);
+  --color-white-alpha-100: rgba(28, 25, 23, 0.10);
+
+  /* Black alphas — remain as-is (still valid on light bg) */
+  /* --color-black-alpha-15: rgba(0, 0, 0, 0.08);
+  --color-black-alpha-20: rgba(0, 0, 0, 0.10);
+  --color-black-alpha-40: rgba(0, 0, 0, 0.18);
+  --color-black-alpha-50: rgba(0, 0, 0, 0.22);
+  --color-black-alpha-55: rgba(0, 0, 0, 0.25);
+  --color-black-alpha-60: rgba(0, 0, 0, 0.28);
+  --color-black-alpha-65: rgba(0, 0, 0, 0.30);
+  --color-black-alpha-70: rgba(0, 0, 0, 0.35); */
+
+  /* Stone alphas — now reference lighter stones */
+  --color-stone-500-alpha-35: rgba(120, 113, 108, 0.20);
+  --color-stone-700-alpha-12: rgba(214, 211, 209, 0.50);
+  --color-stone-700-alpha-20: rgba(214, 211, 209, 0.70);
+  --color-stone-700-alpha-30: rgba(214, 211, 209, 0.80);
+  --color-stone-700-alpha-40: rgba(214, 211, 209, 0.90);
+  --color-stone-800-alpha-15: rgba(232, 229, 225, 0.60);
+  --color-stone-800-alpha-50: rgba(232, 229, 225, 0.90);
+  --color-stone-900-alpha-30: rgba(243, 240, 236, 0.60);
+  --color-stone-900-alpha-35: rgba(243, 240, 236, 0.70);
+  --color-stone-900-alpha-45: rgba(243, 240, 236, 0.80);
+  --color-stone-900-alpha-60: rgba(243, 240, 236, 0.92);
+
+  /* Amber alphas — remain useful on light bg */
+  --color-amber-700-alpha-04: rgba(180, 83, 9, 0.04);
+  --color-amber-700-alpha-05: rgba(180, 83, 9, 0.05);
+  --color-amber-700-alpha-40: rgba(180, 83, 9, 0.30);
+  --color-amber-800-alpha-04: rgba(146, 64, 14, 0.04);
+  --color-amber-800-alpha-05: rgba(146, 64, 14, 0.05);
+  --color-amber-800-alpha-06: rgba(146, 64, 14, 0.06);
+  --color-amber-800-alpha-07: rgba(146, 64, 14, 0.07);
+  --color-amber-800-alpha-12: rgba(146, 64, 14, 0.10);
+  --color-amber-800-alpha-30: rgba(146, 64, 14, 0.18);
+  --color-amber-800-alpha-50: rgba(146, 64, 14, 0.28);
+  --color-amber-900-alpha-12: rgba(120, 53, 15, 0.10);
+  --color-amber-600-alpha-60: rgba(217, 119, 6, 0.40);
+
+  /* Overlay / glass tokens — keep photo overlays dark, just adjust standard surfaces */
+  --color-bg-dark-alpha-90: rgba(247, 245, 242, 0.92);
+  --color-card-overlay-alpha-35: rgba(255, 254, 252, 0.60);
+
+  /* Misc */
+  --color-soft-blue-alpha-04: rgba(37, 99, 235, 0.04);
+
+  /* Gradient pairs — light warm tints */
+  --color-gradient-dark-brown: #f0ede8;
+  --color-gradient-light-brown: #faf8f5;
+  --color-gradient-dark-blue: #eff2f8;
+  --color-gradient-light-blue: #f5f7fc;
+  --color-gradient-dark-purple: #f0eef8;
+  --color-gradient-light-purple: #f6f4fc;
+  --color-gradient-dark-green: #edf5ee;
+  --color-gradient-light-green: #f4faf4;
+  --color-gradient-dark-gray: #f0eeec;
+  --color-gradient-light-gray: #f7f5f2;
+
+  /* Nav / UI surface tokens */
+  --nav-bg: rgba(247, 245, 242, 0.94);
+  --nav-border: #e8e5e1;
+  --card-bg: #ffffff;
+  --card-border: #e8e5e1;
+  --input-bg: #ffffff;
+  --input-border: #d6d3d1;
+  --type-border: #e8e5e1;
+
+  /* Badge tokens */
+  --badge-blue-bg: rgba(37, 99, 235, 0.07);
+  --badge-blue-border: rgba(37, 99, 235, 0.25);
+  --badge-violet-bg: rgba(124, 58, 237, 0.07);
+  --badge-violet-border: rgba(124, 58, 237, 0.25);
+  --badge-emerald-bg: rgba(5, 150, 105, 0.07);
+  --badge-emerald-border: rgba(5, 150, 105, 0.25);
+  --badge-cyan-bg: rgba(8, 145, 178, 0.07);
+  --badge-cyan-border: rgba(8, 145, 178, 0.25);
+  --badge-amber-bg: rgba(146, 64, 14, 0.06);
+  --badge-amber-border: rgba(146, 64, 14, 0.20);
+
+  /* Misc UI */
+  --stat-border: #e8e5e1;
+  --toast-default-bg: #ffffff;
+  --toast-default-border: #e8e5e1;
+  --toast-default-left: #d6d3d1;
+  --hero-bg-from: #ede9e3;
+  --hero-bg-to: #f7f3ec;
+  --section-label-color: #92400e;
+  --link-color: #92400e;
+  --toggle-bg: #e8e5e1;
+  --toggle-knob: #a8a29e;
+  --toggle-active-bg: #b45309;
+  --toggle-active-knob: #ffffff;
+  --footer-color: #d6d3d1;
+  --swatch-border: #e8e5e1;
+  --palette-border: #e8e5e1;
+}
+
+/* ============================================================
+   BASE RESET & BODY
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  transition: var(--transition-colors);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 9999;
+  background: var(--accent);
+  color: var(--color-white);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: rgba(120, 53, 15, 0.4);
+  color: #fef3c7;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes noise-anim {
+  0%, 100% { transform: translate(0, 0); }
+  10%       { transform: translate(-1%, -1%); }
+  50%       { transform: translate(1%, 1%); }
+}
+
+.animate-noise {
+  animation: noise-anim 0.5s steps(10) infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ============================================================
+   SONNER TOAST — NMC Design System
+   ============================================================ */
+.nmc-toast {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  min-width: 280px;
+  border-radius: 0;
+  border: 1px solid var(--toast-default-border);
+  border-left: 2px solid var(--toast-default-left);
+  background: var(--toast-default-bg);
+  box-shadow: 0 8px 32px var(--color-black-alpha-20);
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+.nmc-toast__title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.nmc-toast__desc {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: var(--color-stone-500);
+  margin-top: 0.15rem;
+}
+
+.nmc-toast__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: transparent;
+  border: none;
+  color: var(--color-stone-600);
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: color 200ms;
+}
+
+.nmc-toast__close:hover {
+  color: var(--foreground);
+}
+
+/* ─── SUCCESS — amber ─── */
+[data-type="success"].nmc-toast {
+  background: var(--color-gradient-dark-brown);
+  border-color: var(--badge-amber-border);
+  border-left: 2px solid var(--color-amber-600);
+}
+[data-type="success"] .nmc-toast__title {
+  color: var(--color-amber-700);
+}
+
+/* ─── ERROR — red ─── */
+[data-type="error"].nmc-toast {
+  background: var(--color-gradient-dark-gray);
+  border-color: rgba(220, 38, 38, 0.20);
+  border-left: 2px solid var(--color-red-600);
+}
+[data-type="error"] .nmc-toast__title {
+  color: var(--color-red-600);
+}
+
+/* ─── INFO — blue ─── */
+[data-type="info"].nmc-toast {
+  background: var(--color-gradient-dark-blue);
+  border-color: var(--badge-blue-border);
+  border-left: 2px solid var(--color-blue-500);
+}
+[data-type="info"] .nmc-toast__title {
+  color: var(--color-blue-500);
+}
+
+/* ─── WARNING — orange ─── */
+[data-type="warning"].nmc-toast {
+  background: var(--color-gradient-light-brown);
+  border-color: rgba(217, 119, 6, 0.20);
+  border-left: 2px solid #f97316;
+}
+[data-type="warning"] .nmc-toast__title {
+  color: #c2410c;
+}
