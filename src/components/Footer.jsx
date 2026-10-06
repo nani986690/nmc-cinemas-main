@@ -31,7 +31,7 @@ const companyAddress = [
   "Prakasam Road",
   "Nagari, Chittoor District",
   "Andhra Pradesh - 517590",
-  "Email: nmchomecinemas@gmail.com",
+  "Email:info@nmchomecinemas.in",
   "Phone: +91 9032596016",
 ];
 
